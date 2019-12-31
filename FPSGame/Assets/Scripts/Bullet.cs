@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private int durationTime = 5;
     [SerializeField] private float moveSpeed = 5f;
     [Tooltip("Set to the Layers of what the bullet needs to attack")]
-    [SerializeField] private LayerMask targetLayers = new LayerMask();
+    public LayerMask targetLayers = new LayerMask();
 
     private void Awake()
     {
