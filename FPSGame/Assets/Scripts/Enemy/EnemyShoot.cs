@@ -12,7 +12,6 @@ public class EnemyShoot : MonoBehaviour
     {
         StartCoroutine(Shoot());
     }
-
     private IEnumerator Shoot()
     {
         yield return new WaitForSeconds(shootDelay);

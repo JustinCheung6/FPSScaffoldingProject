@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class EnemyLook : MonoBehaviour
 {
+    //Make sure the player has a PlayerHealth script
     private GameObject player = null;
     [Range(0.00f, 1.00f)]
     [SerializeField] private float rotationSpeed = 0.2f;
-
-    // Start is called before the first frame update
     void Start()
     {
         if (player == null)
             player = FindObjectOfType<PlayerHealth>().gameObject;
     }
-
-    // Update is called once per frame
     void Update()
     {
         //Unit vector that points from enemy to the player

@@ -14,10 +14,8 @@ public class PlayerLook : MonoBehaviour
     [SerializeField] private Transform playerCam = null;
     [Tooltip("Invert mouse across X-axis")]
     [SerializeField] private bool invertedVertical = false;
-
     [SerializeField] private float maxVerticalRotation = 90f;
     [SerializeField] private float minVerticalRotation = -90f;
-
 
     private float vRotation = 0f;
 
@@ -27,7 +25,6 @@ public class PlayerLook : MonoBehaviour
         if (playerCam == null)
             if (GetComponentInChildren<Camera>() != null)
                 playerCam = GetComponentInChildren<Camera>().transform;
-
         //Set vertical rotation to player's default
         vRotation = playerCam.eulerAngles.x;
     }
@@ -35,14 +32,12 @@ public class PlayerLook : MonoBehaviour
     {
         Rotate();
     }
-
     private void Rotate()
     {
         //HORIZONTAL
         float mouseX = Input.GetAxis("Mouse X") * rotateSpeed * Time.deltaTime;
         if (invertedHorizontal)
             mouseX = -mouseX;
-
         //Rotating the y-axis rotates left and right
         transform.Rotate(Vector3.up, mouseX);
 
@@ -54,9 +49,7 @@ public class PlayerLook : MonoBehaviour
         else
             vRotation -= mouseY;
 
-
         vRotation = Mathf.Clamp(vRotation, minVerticalRotation, maxVerticalRotation);
-
         playerCam.localRotation = Quaternion.Euler(vRotation, 0f, 0f);
 
     }

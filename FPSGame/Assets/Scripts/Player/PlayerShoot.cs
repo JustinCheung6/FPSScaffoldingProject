@@ -9,9 +9,7 @@ public class PlayerShoot : MonoBehaviour
 
     void Update()
     {
-        
         if (Input.GetButtonDown("Fire1"))
             Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
-
     }
 }
