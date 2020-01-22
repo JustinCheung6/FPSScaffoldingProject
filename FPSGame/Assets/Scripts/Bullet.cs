@@ -28,12 +28,14 @@ public class Bullet : MonoBehaviour
         //Set the bullet's layer to the same as the object it spawns with
         if (  targetLayers == (targetLayers | (1 << col.gameObject.layer))  )
         {
-            //
+            //IDamageable is connected to the EnemyHealth and PlayerHealth scripts
             if(col.gameObject.GetComponent<IDamageable>() != null)
                 col.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
         }
         Destroy(gameObject);
     }
+
+    //Coroutine allows you to wait for seconds.
     private IEnumerator TimeOut(int time)
     {
         yield return new WaitForSeconds(time);

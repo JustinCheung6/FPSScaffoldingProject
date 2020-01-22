@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 {
     [SerializeField] private int health = 10;
     [SerializeField] private GameObject enemyModelObject;
+    [Tooltip("The enemy's material will change to this when injured, then back to the material it started with.")]
     [SerializeField] private Material injuredMaterial;
 
     private Material startMaterial;
@@ -26,6 +27,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         Destroy(gameObject);
     }
 
+    //Makes the Enemies flash red when injured
     private IEnumerator ChangeMaterial()
     {
         enemyModelObject.GetComponent<Renderer>().material = injuredMaterial;

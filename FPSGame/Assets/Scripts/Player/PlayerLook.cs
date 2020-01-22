@@ -43,12 +43,14 @@ public class PlayerLook : MonoBehaviour
 
         //VERTICAL
         float mouseY = Input.GetAxis("Mouse Y") * rotateSpeed * Time.deltaTime;
+        
         //Adding inputs creates inverted movement
         if (invertedVertical)
             vRotation += mouseY;
         else
             vRotation -= mouseY;
 
+        //Clamping restricts the range of a float to the provided min value and max value.
         vRotation = Mathf.Clamp(vRotation, minVerticalRotation, maxVerticalRotation);
         playerCam.localRotation = Quaternion.Euler(vRotation, 0f, 0f);
 

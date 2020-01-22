@@ -10,6 +10,7 @@ public class EnemyLook : MonoBehaviour
     [SerializeField] private float rotationSpeed = 0.2f;
     void Start()
     {
+        //The script will get the first object it can find with the PlayerHealth script.
         if (player == null)
             player = FindObjectOfType<PlayerHealth>().gameObject;
     }
@@ -19,7 +20,7 @@ public class EnemyLook : MonoBehaviour
         Vector3 _forward = (player.transform.position - transform.position).normalized;
         //Turn the direction vector to a quaternion
         Quaternion target = Quaternion.LookRotation(_forward);
-        //Slowly turn to that rotation
+        //Slowly turn to that rotation 
         transform.rotation = Quaternion.Slerp(transform.rotation, target, rotationSpeed);
     }
 }
